@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "routes": [
-    { "src": "/admin", "dest": "/admin.html" },
-    { "src": "/backend", "dest": "/admin.html" },
-    { "src": "/crm", "dest": "/index.html" },
-    { "src": "/(.*)", "dest": "/$1" }
-  ]
-}
