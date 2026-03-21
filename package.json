@@ -1,0 +1,25 @@
+{
+  "name": "om-associates-crm",
+  "version": "4.0.0",
+  "description": "OM Associates Professional CRM — Cloudflare Workers + D1",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "deploy": "wrangler deploy",
+    "deploy:pages": "wrangler pages deploy public --project-name=om-associates-crm",
+    "db:create": "wrangler d1 create om-crm-db",
+    "db:info": "wrangler d1 info om-crm-db",
+    "db:execute": "wrangler d1 execute om-crm-db --file=schema.sql",
+    "db:backup": "wrangler d1 export om-crm-db --output=backup.sql",
+    "kv:create": "wrangler kv namespace create om-crm-sessions",
+    "r2:create": "wrangler r2 bucket create om-crm-backups",
+    "logs": "wrangler tail",
+    "setup": "npm run db:create && npm run kv:create && npm run r2:create && echo '✅ All resources created. Update wrangler.toml with the IDs shown above.'"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
